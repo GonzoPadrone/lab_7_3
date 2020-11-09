@@ -1,35 +1,38 @@
-<?php
-
-class A 
+<?php 
+class A
 {
+    protected $x;
+
+    public function line_equation($a,$b)
+    {
+        return $a !== 0 ? $this->x = (-$b)/$a : null;
+    }
 }
 
-class B extends A 
+class B extends A
 {
-	public function construct($a) 
-	{
-		$this->a = $a;
-	}
+    public  function dis($a,$b,$c)
+    {
+        return ($b*$b)-4*$a*$c;
+    }
 
-	protected $a;
+    public function x_find($a,$b,$c)
+    {
+        if ($a ===0)
+        {
+            return parent::line_equation($b,$c);
+        }
 
+        $d = $this->dis($a,$b,$c);
+        if ($d>0)
+        {
+            $sd = sqrt ($d);
+            return $this->x = array((-$b-$sd)/(2*$a), (-$b+$sd)/(2*$a));
+        }
+
+        return $d===0 ? $this->x = array(-$b / (2 * $a)) : null;
+
+    }
 }
 
-class C extends B 
-{
-	public function construct($a, $b, $c)
-	{
-		$this->b = $b;
-		$this->c = $c;
-		parent:: __construct($a);
-	}
 
-	protected $b;
-	protected $c;
-}
-
-$a1 = new A();
-$a2 = new A();
-$b4 = new B($a3);
-$a3 = new A();
-$c5 = new C($a1, $a2, $b4, $a3);
