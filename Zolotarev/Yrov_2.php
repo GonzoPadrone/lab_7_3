@@ -1,44 +1,41 @@
 <?php
 
-namespace Egor;
+namespace Zolotarev;
 
 use core\EquationInterface;
 
-
-class A
+Class QuEquation extends Equation implements EquationInterface
 {
-    protected $x;
 
-    public function line_equation($a,$b)
+    protected function dis($a, $b, $c)
     {
-        return $a !== 0 ? $this->x = (-$b)/$a : null;
-    }
-}
-
-class B extends A
-{
-    public  function dis($a,$b,$c)
-    {
-        return ($b*$b)-4*$a*$c;
+        return ($b ** 2) - 4 * $a * $c;
     }
 
-    public function x_find($a,$b,$c)
+    public function solve($a, $b, $c)
     {
-        if ($a ===0)
-        {
-            return parent::line_equation($b,$c);
+
+        $x = $this->dis($a, $b, $c);
+
+        if ($a == 0) {
+            return $this->li_solve($b, $c);
+        }
+        MyLog::log("Квадратное уравнение");
+        if ($x > 0) {
+            return $this->X = array(
+                (-$b + sqrt($x)) / (2 * $a),
+                (-$b - sqrt($x)) / (2 * $a)
+            );
         }
 
-        $d = $this->dis($a,$b,$c);
-        if ($d>0)
-        {
-            $sd = sqrt ($d);
-            return $this->x = array((-$b-$sd)/(2*$a), (-$b+$sd)/(2*$a));
+        if ($x == 0) {
+            return $this->X = array(-($b / (2 * $a)));
         }
 
-        return $d===0 ? $this->x = array(-$b / (2 * $a)) : null;
+        throw new ZolotarevException("Ошибка: уравнение не имеет корней.");
 
     }
+
 }
 
-
+?>

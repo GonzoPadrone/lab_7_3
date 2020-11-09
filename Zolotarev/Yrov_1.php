@@ -1,10 +1,20 @@
 <?php
-class A
-{
-    protected $x;
 
-    public function line_equation($a,$b)
+namespace Zolotarev;
+
+Class Equation
+{
+    public function li_solve($a, $b)
     {
-        return $a !== 0 ? $this->x = (-$b)/$a : null;
+
+        if ($a == 0) {
+            throw new ZolotarevException("Ошибка: уравнения не существует.");
+        }
+        MyLog::log("Линейное уравнение");
+        return $this->X = array(-($b / $a));
     }
+
+    protected $X;
 }
+
+?>
