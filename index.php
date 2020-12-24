@@ -16,6 +16,15 @@ ini_set("display_errors", 1);
 error_reporting(-1);
 
 try {
+    $folder = 'log\\';
+    if (!file_exists($folder)) {
+        mkdir($folder, 0700);
+    }
+
+    $open_file = fopen("version", "r");
+    MyLog::log("Version program: " . fgets($open_file));
+    fclose($open_file);
+
     $b = new QuEquation();
     $values = array();
 
