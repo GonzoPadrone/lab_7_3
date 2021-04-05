@@ -1,0 +1,36 @@
+{
+	"name": "gonzopadrone/lab_7_3",
+	"description": "goga",
+	"type": "project",
+		"license": "-",
+		"authors": [
+				{
+					"name": "zolotarev egor",
+					"email": "zolotarev_egor.kolegh@yandex.ru"
+				}
+		],
+		
+		"minimum-stability": "dev",
+		
+	"require": {
+				"gonzopadrone/goga": "^1.0"
+		},
+		
+		
+		"repositories": [
+					{
+						"type": "git",
+						"url": "https://github.com/rok9ru/trpo-core"
+					},
+					{
+						"type": "git",
+						"url": "https://github.com/GonzoPadrone/goga.git"
+					}
+			],
+			
+			"scripts": {
+			 "post-install-cmd":[
+				"git symbolic-ref --short -q HEAD>version"
+				]
+			}
+}

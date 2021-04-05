@@ -4,13 +4,8 @@ use Zolotarev\MyLog;
 use Zolotarev\ZolotarevException;
 use Zolotarev\QuEquation;
 
-include "core/EquationInterface.php";
-include "core/LogAbstract.php";
-include "core/LogInterface.php";
-include "Zolotarev/MyLog.php";
-include "Zolotarev/Equation.php";
-include "Zolotarev/QuEquation.php";
-include "Zolotarev/ZolotarevException.php";
+include "vendor/autoload.php";
+
 
 ini_set("display_errors", 1);
 error_reporting(-1);

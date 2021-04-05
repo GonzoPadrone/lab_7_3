@@ -1,5 +1,11 @@
 .idea
+
 core
+
 log
+
 version
+
 .vscode
+vendor
+composer.phar
