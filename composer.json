@@ -32,5 +32,8 @@
 			 "post-install-cmd":[
 				"git symbolic-ref --short -q HEAD>version"
 				]
-			}
+			},
+	"require-dev": {
+		"phpunit/phpunit": "^9"
+	}
 }
